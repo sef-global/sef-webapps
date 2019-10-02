@@ -57,14 +57,7 @@ public class Redirector {
             Gson gson = new GsonBuilder().create();
             String json = gson.toJson(elements);
 
-            // Port
-            String port = environment.getProperty("server.port");
-            // Local address
-            String hostAddress = InetAddress.getLocalHost().getHostAddress();
-
             final String uri = "http://localhost:8080/partnership/v1/engagements";
-//            final String uri = "http://"+hostAddress+":"+port+"/engagements";
-//            final String uri = "http://"+hostAddress+":8081/engagements";
 
             HttpClient httpclient = HttpClients.createDefault();
             HttpPost executor = new HttpPost(uri);
