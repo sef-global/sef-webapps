@@ -12,6 +12,10 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.sefglobal.webapps.partnership.redirector.exception.PartnershipRedirectorException;
 import org.sefglobal.webapps.partnership.redirector.exception.ResourceNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.HashMap;
@@ -26,6 +31,11 @@ import java.util.Map;
 
 @RestController
 public class Redirector {
+    private Logger logger = LoggerFactory.getLogger(Redirector.class);
+
+    @Autowired
+    Environment environment;
+
     @GetMapping("/{key}")
     private ModelAndView redirectToEventUrl(@PathVariable String key, HttpServletRequest request) throws PartnershipRedirectorException {
         try {
@@ -47,7 +57,7 @@ public class Redirector {
             Gson gson = new GsonBuilder().create();
             String json = gson.toJson(elements);
 
-            final String uri = "http://localhost:8080/engagements";
+            final String uri = "http://localhost:8080/partnership/v1/engagements";
 
             HttpClient httpclient = HttpClients.createDefault();
             HttpPost executor = new HttpPost(uri);
@@ -74,10 +84,13 @@ public class Redirector {
                     return new ModelAndView("redirect:" + redirectUrl);
                 }
             } else {
+
+                logger.error("Empty Payload");
                 throw new ResourceNotFoundException("Sorry, broken link");
             }
 
         } catch (IllegalArgumentException | IOException e) {
+            logger.error("Broken link", e);
             throw new ResourceNotFoundException("Sorry, broken link");
         }
     }
