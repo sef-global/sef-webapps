@@ -96,7 +96,7 @@ public class Redirector {
     }
 
 
-    public static String getClientIp(HttpServletRequest request) {
+    private static String getClientIp(HttpServletRequest request) {
 
         String remoteAddr = "";
 
