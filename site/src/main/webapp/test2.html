@@ -182,7 +182,7 @@
 
     $.ajax({
         type: 'get',
-        url: 'https://gw.sefglobal.org/partnership/v1/engagements/university/'+id,
+        url: window.location.origin+'/invoker/open/api/partnership/v1/engagements/university/'+id,
         dataType: 'json',
         success: function (data) {
 

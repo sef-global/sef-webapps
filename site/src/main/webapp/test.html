@@ -345,10 +345,9 @@
 <script>
     $.ajax({
         type: 'get',
-        url: 'https://gw.sefglobal.org/partnership/v1/engagements',
+        url: window.location.origin+'/invoker/open/api/partnership/v1/engagements',
         dataType: 'json',
         success: function (data) {
-
             //preprocess
             function preProcessData(data) {
 
@@ -373,7 +372,9 @@
             $("#uniData").html(content);
 
             console.log(preProcessedData);
-
+        },
+        error: function (data) {
+            console.log(data);
         }
     })
 </script>
