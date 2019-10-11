@@ -5,9 +5,11 @@ import org.apache.http.client.methods.*;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.sefglobal.invoker.exception.HTTPClientCreationException;
-import org.sefglobal.invoker.utill.InvokerUtil;
+import org.sefglobal.invoker.util.InvokerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +24,8 @@ import java.util.stream.Collectors;
 @RestController
 public class InvokerController {
     private Logger logger = LoggerFactory.getLogger(InvokerController.class);
+    @Autowired
+    private Environment environment;
 
     @RequestMapping("/api/**")
     private String login(HttpServletRequest request) {
@@ -31,7 +35,7 @@ public class InvokerController {
 
     @RequestMapping("/open/api/**")
     private void sendRequestToOpenApi(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String gatewayUri = "http://localhost:8080";
+        final String gatewayUri = environment.getProperty("config.gatewayUri");
         // extract the uri from the request
         String[] uriArr = request.getRequestURI().split("/", 5);
         if (uriArr.length != 5) {
