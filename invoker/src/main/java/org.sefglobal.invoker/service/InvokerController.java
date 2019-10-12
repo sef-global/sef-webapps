@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 @RestController
 public class InvokerController {
     private Logger logger = LoggerFactory.getLogger(InvokerController.class);
-    private static final int urlSplitLimit = 4;
+    private static final int urlSplitLimit = 5; // production - 5 , testing - 4
     @Autowired
     private Environment environment;
 
@@ -41,13 +41,13 @@ public class InvokerController {
 
         final String gatewayUri = environment.getProperty("config.gatewayUri");
         // extract the uri from the request
-        String[] uriArr = request.getRequestURI().split("/", urlSplitLimit);
-        if (uriArr.length != urlSplitLimit) {
+        String[] uriArr = request.getRequestURI().split("/", urlSplitLimit-1);
+        if (uriArr.length != urlSplitLimit-1) {
             logger.warn("Bad Request, uri or method not found. Attribute length: " + uriArr.length);
             response.sendError(400, "Bad Request, uri or method not found");
             return;
         }
-        String uri = "/" + uriArr[urlSplitLimit-1];
+        String uri = "/" + uriArr[urlSplitLimit-2];
         if (request.getQueryString() != null)
             uri += "?" + request.getQueryString();
         uri = gatewayUri + uri;
