@@ -21,13 +21,25 @@ import org.sefglobal.invoker.exception.UnexpectedResponseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
+@Component
 public class OAuthUtil {
     private static Logger logger = LoggerFactory.getLogger(OAuthUtil.class);
+    private static Environment environment;
 
     @Autowired
-    private static Environment environment;
+    private Environment env;
+
+    @PostConstruct
+    public void init(){
+        OAuthUtil.environment = env;
+    }
 
     public static Token generateToken(String username, String password, String scopes)
             throws IOException, ParseException,
@@ -35,7 +47,7 @@ public class OAuthUtil {
 
         final String clientId = environment.getProperty("config.clientId");
         final String clientSecret = environment.getProperty("config.clientSecret");
-        final String unEncodedClientCredentials = clientId+clientSecret;
+        final String unEncodedClientCredentials = clientId+":"+clientSecret;
 
         String clientCredentials = Base64.getEncoder().encodeToString(unEncodedClientCredentials.getBytes());
 
