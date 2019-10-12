@@ -12,6 +12,7 @@
         <module>partnership.redirector</module>
         <module>site</module>
         <module>invoker</module>
+        <module>invoke</module>
     </modules>
 
 

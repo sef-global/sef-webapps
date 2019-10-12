@@ -1,10 +1,11 @@
-package org.sefglobal.invoker.utill;
+package org.sefglobal.invoker.util;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.sefglobal.invoker.dto.Token;
 import org.sefglobal.invoker.exception.HTTPClientCreationException;
 
 import java.io.IOException;
@@ -22,6 +23,22 @@ public final class InvokerUtil {
         CloseableHttpClient client = ControllerUtility.getHTTPClient();
 
         return client.execute(executor);
+    }
+    public static HttpResponse execute(HttpRequestBase executor, int retryCount, Token token)
+            throws IOException, HTTPClientCreationException {
+        if (retryCount == 0) {
+            return null;
+        }
+        executor.setHeader("Authorization", "Bearer " + token.getAccessToken());
+        CloseableHttpClient client = ControllerUtility.getHTTPClient();
+
+        HttpResponse response = client.execute(executor);
+        if (response.getStatusLine().getStatusCode() == 401) {
+            log.info("Token invalid. Renewing token. Attempts left: " + retryCount);
+            OAuthUtil.refreshToken(token);
+            return execute(executor, --retryCount, token);
+        }
+        return response;
     }
 
     public static String printResponse(HttpResponse response){
