@@ -15,36 +15,174 @@
     <!-- Icons -->
     <link href="assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
     <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- Argon CSS -->
     <link type="text/css" href="assets/css/argon.css?v=1.0.1" rel="stylesheet">
     <!-- Global custom CSS -->
     <link type="text/css" href="assets/css/global-custom.css" rel="stylesheet">
+
+
 </head>
 
 <body>
-<div id="navbar"></div>
+<!--<div id="navbar"></div>-->
+<header class="header-global">
+    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand mr-lg-5" href="https://sefglobal.org">
+                <img src="https://sefglobal.org/assets/img/brand/logo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global"
+                    aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbar_global">
+                <div class="navbar-collapse-header">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="https://sefglobal.org">
+                                <img src="https://sefglobal.org/assets/img/brand/logo.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse"
+                                    data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
 
-<main class="profile-page">
-    <section class="section-profile-cover section-shaped my-0">
-        <!-- Circles background -->
-        <div class="shape shape-style-1 shape-primary alpha-4">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+                    <li class="nav-item dropdown">
+                        <a href="https://sefglobal.org/" class="nav-link" role="button">
+                            <i class="ni ni-ui-04 d-lg-none"></i>
+                            <span class="nav-link-inner--text">Home</span>
+                        </a>
+                    </li>
+
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+                                    <i class="ni ni-ui-04 d-lg-none"></i>
+                                    <span class="nav-link-inner--text">Projects</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-xl">
+                                    <div class="dropdown-menu-inner">
+                                        <a href="https://sefglobal.org/onelive" class="media d-flex align-items-center">
+                                            <img src="https://sefglobal.org/assets/img/brand/onelive.png"
+                                                 class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
+                                                 style="width: 80px;">
+                                            <div class="media-body ml-3">
+                                                <h6 class="heading text-primary mb-md-1">Onelive</h6>
+                                                <p class="description d-none d-md-inline-block mb-0">Interactive live
+                                                    content.</p>
+                                            </div>
+                                        </a>
+                                        <a href="https://sefglobal.org/scholarx"
+                                           class="media d-flex align-items-center">
+                                            <img src="https://sefglobal.org/assets/img/brand/scholarx.png"
+                                                 class="badge-white img-center img-fluid shadow shadow-lg--hover"
+                                                 style="width: 80px;">
+                                            <div class="media-body ml-3">
+                                                <h6 class="heading text-primary mb-md-1">ScholarX</h6>
+                                                <p class="description d-none d-md-inline-block mb-0">Premium mentoring
+                                                    for everyone.</p>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="media d-flex align-items-center">
+                                            <img src="https://sefglobal.org/assets/img/brand/irc.png"
+                                                 class="badge-white img-center img-fluid shadow shadow-lg--hover"
+                                                 style="width: 80px;">
+                                            <div class="media-body ml-3">
+                                                <h6 class="heading text-primary mb-md-1">International Research
+                                                    Council</h6>
+                                                <!-- <p class="description d-none d-md-inline-block mb-0"></p> -->
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+                                <i class="ni ni-collection d-lg-none"></i>
+                                <span class="nav-link-inner--text">About</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="https://sefglobal.org/about/about.html" class="dropdown-item">Who we are</a>
+                                <a href="https://sefglobal.org/about/contribute.html"
+                                   class="dropdown-item">Contribute</a>
+                                <a href="https://sefglobal.org/about/contact.html" class="dropdown-item">Contact</a>
+                                <a href="https://sefglobal.org/about/team.html" class="dropdown-item">Team</a>
+                                <a href="https://sefglobal.org/about/alumni.html" class="dropdown-item">Alumni</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="https://medium.com/@SustainableEduF" class="nav-link" role="button">
+                                <i class="ni ni-ui-04 d-lg-none"></i>
+                                <span class="nav-link-inner--text">Blog</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="https://sefglobal.org/apply" class="nav-link" role="button">
+                                <i class="ni ni-ui-04 d-lg-none"></i>
+                                <span class="nav-link-inner--text">Join Us</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </ul>
+                <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon"
+                           href="https://www.facebook.com/sustainableeducationfoundation/" target="_blank"
+                           data-toggle="tooltip" title="Like us on Facebook">
+                            <i class="fa fa-facebook-square"></i>
+                            <span class="nav-link-inner--text d-lg-none">Facebook</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" href="https://twitter.com/goasksef" target="_blank"
+                           data-toggle="tooltip" title="Follow us on Twitter">
+                            <i class="fa fa-twitter-square"></i>
+                            <span class="nav-link-inner--text d-lg-none">Twitter</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" href="https://www.linkedin.com/company/sefglobal/"
+                           target="_blank" data-toggle="tooltip" title="Follow us on LinkedIn">
+                            <i class="fa fa-linkedin-square"></i>
+                            <span class="nav-link-inner--text d-lg-none">LinkedIn</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" href="https://www.instagram.com/sefglobal/"
+                           target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+                            <i class="fa fa-instagram"></i>
+                            <span class="nav-link-inner--text d-lg-none">Instagram</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
         </div>
-        <!-- SVG separator -->
-        <div class="separator separator-bottom separator-skew">
-            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
-                 xmlns="http://www.w3.org/2000/svg">
-                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-            </svg>
-        </div>
-    </section>
-    <section class="section">
+    </nav>
+</header>
+
+
+<main>
+    <section class="section pb-0 bg-gradient-white">
 
         <div id="uniData"></div>
 
@@ -82,66 +220,67 @@
 <!--Mustache template for content-->
 <script type="text/html" id="templateUni">
     {{#universityData}}
+    <div class="container-fluid ml-5 ml-sm-0">
+        <div class="row row-grid align-items-center">
+            <div class="col-md-5 order-sm-1 col-xs-12">
+                <div class="d-flex px-3">
+                    <div class="pl-4">
+                        <h1 class="display-1 mt--100 mb-5">Multiverse Ranking</h1>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 text-sm-center">
+                                <a href="#">
+                                    <img src="{{imageUrl}}"
+                                         class="rounded-circle" width="100px">
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-9">
+                                <h3 class="ml-sm-3 ml-md-1 mr--100">{{name}}</h3>
+                                <h6 class="ml-sm-3 ml-md-1 mr--100">Ambassador - {{ambassadorName}}</h6>
+                                <h6 class="ml-sm-3 ml-md-1 mr--100">Engagement - <strong>{{engagement}}</strong>  </h6>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 order-sm-2 ml-md-auto col-sm-12 mt-5">
+                <div class="position-relative pl-sm-5 pb-5 mt--100">
+                    <img src="assets/img/ill/multiverse-01.svg" class="img-center img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SVG separator -->
+    <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+             xmlns="http://www.w3.org/2000/svg">
+            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+    </div>
     <div class="container">
-        <div class="card card-profile shadow mt--300">
-            <div class="px-4">
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 order-lg-2">
-                        <div class="card-profile-image">
-                            <a href="#">
-                                <img src="{{imageUrl}}"
-                                     class="rounded-circle">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                        <div class="card-profile-actions py-4 mt-lg-0">
-                            <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 order-lg-1">
-                        <div class="card-profile-stats d-flex justify-content-center">
-                            <div>
-                                <span class="heading">{{engagement}}</span>
-                                <span class="description">Engagement</span>
+        {{#societies}}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow shadow-lg--hover">
+                    <div class="card-body testimonial">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <div class="d-flex px-3 mt-3">
+                                    <div class="text-center">
+                                        <span class="h6 text-success">{{rank}}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <span class="heading">{{totalSocieties}}</span>
-                                <span class="description">Societies</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-5">
-                    <h3>{{name}}
-                    </h3>
-                    <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Sri Lanka</div>
-                    <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Ambassador - {{ambassadorName}}</div>
-                </div>
-                <div class="mt-5 py-5 border-top text-center">
 
-                    {{#societies}}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card shadow shadow-lg--hover">
-                                <div class="card-body testimonial">
-                                    <div class="row">
-                                        <div class="col-sm-1">
-                                            <div class="d-flex px-3 mt-3">
-                                                <div class="text-center">
-                                                    <span class="h6 text-success">{{rank}}</span>
-                                                </div>
-                                            </div>
+                            <div class="col-sm-9">
+                                <div class="row text-left">
+                                    <div class="col-sm-12">
+                                        <div class="d-flex">
+                                            <a href="#" class="h6 text-success">{{name}}</a>
                                         </div>
-
-                                        <div class="col-sm-9">
-                                            <div class="row text-left">
-                                                <div class="col-sm-12">
-                                                    <div class="d-flex">
-                                                        <a href="#" class="h6 text-success">{{name}}</a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12">
+                                    </div>
+                                    <div class="col-sm-12">
                                     <span class="progress-wrapper">
                                         <span class="progress">
                                             <span class="progress-bar bg-default" role="progressbar"
@@ -150,27 +289,23 @@
                                                   style="width: {{percentage}}%;"></span>
                                         </span>
                                     </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="d-flex px-3 mt-3">
-                                                <div class="text-right">
-                                                    <span class="h6 text-success" style="margin-bottom: 0;">{{engagement}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="d-flex px-3 mt-3">
+                                    <div class="text-right">
+                                        <span class="h6 text-success" style="margin-bottom: 0;">{{engagement}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {{/societies}}
 
+                    </div>
                 </div>
             </div>
         </div>
+        {{/societies}}
     </div>
     {{/universityData}}
 </script>
