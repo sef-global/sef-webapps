@@ -41,6 +41,7 @@ public class InvokerController {
 
         final String gatewayUri = environment.getProperty("config.gatewayUri");
         // extract the uri from the request
+        //todo: use request.getPathinfo
         String[] uriArr = request.getRequestURI().split("/", urlSplitLimit-1);
         if (uriArr.length != urlSplitLimit-1) {
             logger.warn("Bad Request, uri or method not found. Attribute length: " + uriArr.length);
@@ -86,6 +87,7 @@ public class InvokerController {
     private void sendRequestToOpenApi(HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String gatewayUri = environment.getProperty("config.gatewayUri");
         // extract the uri from the request
+        //todo: use request.getPathinfo
         String[] uriArr = request.getRequestURI().split("/", urlSplitLimit);
         if (uriArr.length != urlSplitLimit) {
             logger.warn("Bad Request, uri or method not found. Attribute length: " + uriArr.length);
