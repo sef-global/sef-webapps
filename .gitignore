@@ -1,4 +1,4 @@
 .idea/*
-sefwebapps.iml
 */target/*
-*/*.iml
+.DS_Store
+*.iml

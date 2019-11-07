@@ -190,9 +190,8 @@
 
 <main>
     <section class="section pb-0">
-        <div class="py-5">
+
         <div id="uniData"></div>
-        </div>
 
     </section>
 </main>
@@ -232,7 +231,7 @@
         <div class="row row-grid align-items-center">
             <div class="col-md-5 order-sm-1 col-xs-12">
                 <div class="d-flex px-3">
-                    <div class="pl-4 pr-0">
+                    <div class="pr-0">
                         <h1 class="display-1 mt--100 mb-5" style="line-height: 1.2;">Multiverse Ranking</h1>
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 text-sm-center pl-0 pr-0">
@@ -246,21 +245,22 @@
                                 <h6 class="ml-sm-3 ml-md-1 mr--100">Ambassador - {{ambassadorName}}</h6>
                                 <h6 class="ml-sm-3 ml-md-1 mr--100"><span class="mb-2"></span><strong
                                         class="h2">{{engagement}}</strong> engagements</h6>
-
+                                <button class="btn btn-sm btn-primary"><a href="https://sefglobal.org/multiverse/" class="text-white">University Ranking</a></button>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-            <div class="col-md-7 order-sm-2 ml-md-auto col-sm-12 mt-5">
+            <div class="col-md-7 order-sm-2 ml-md-auto col-sm-12 mt-5 d-sm-none d-md-block">
                 <div class="position-relative pl-sm-5 pb-5 mt--100 mr--100">
                     <img src="../assets/img/ill/multiverse-01.svg" class="img-center img-fluid">
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container py-5">
+        <p class="lead">Society Ranking:</p>
         {{#societies}}
         <div class="row">
             <div class="col-md-12">
