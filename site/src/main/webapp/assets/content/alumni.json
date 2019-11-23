@@ -698,6 +698,60 @@
           }
         ],
         "br": ""
+      },
+      {
+        "name": "Jinadi Yasiruka",
+        "image": "../assets/img/team/jinadi.jpeg",
+        "post": "Digital Marketing Executive.",
+        "social": [
+          {
+            "name": "linkedin",
+            "link": "https://www.linkedin.com/in/jinadi-yasiruka-55579667/",
+            "button": "default"
+          },
+          {
+            "name": "facebook",
+            "link": "https://www.facebook.com/jinadiyasiruka",
+            "button": "facebook"
+          }
+        ],
+        "br": ""
+      },
+      {
+        "name": "Shahana Somasundaram",
+        "image": "../assets/img/team/shahanasomasundaram.jpg",
+        "post": "Product Manager",
+        "social": [
+          {
+            "name": "linkedin",
+            "link": "https://www.linkedin.com/in/shahana-banu/",
+            "button": "default"
+          },
+          {
+            "name": "facebook",
+            "link": "https://www.facebook.com/banu.sundar.50746?fref=search&__tn__=%2Cd%2CP-R&eid=ARAZUfSCH9MKF0J5HPVnBHqapEwajB9zNkv5nVUv3qvIEHc9oPFZIcqfJ5oE8jSBTZgwIylQmCqq022S",
+            "button": "facebook"
+          }
+        ],
+        "br": ""
+      },
+      {
+        "name": "Buwaneka De Silva",
+        "image": "../assets/img/team/buwaneka.jpg",
+        "post": "Deputy Chairperson",
+        "social": [
+          {
+            "name": "linkedin",
+            "link": "https://www.linkedin.com/in/bpdesilva/",
+            "button": "default"
+          },
+          {
+            "name": "facebook",
+            "link": "https://www.facebook.com/Buwaneka.DeSilva",
+            "button": "facebook"
+          }
+        ],
+        "br": ""
       }
     ]
   }
