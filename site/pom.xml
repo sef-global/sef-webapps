@@ -10,7 +10,6 @@
   <packaging>war</packaging>
 
   <name>site Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
   <url>https://sefglobal.org</url>
 
   <properties>
