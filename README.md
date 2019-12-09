@@ -32,33 +32,6 @@
     ```
 2. Deploy three war files in module target directories in tomcat9
 
-## Configuring the DB and API endpoints
-
-### DB
-
-( Upgade to MySQL 8.0 if you are using lower versions )
-
-1. Create new mysql user for sef
-    ```sql
-    CREATE USER 'sef'@'localhost' IDENTIFIED BY 'sef123';
-    ```
-2. Grant access to the new user
-    ```sql
-    GRANT ALL PRIVILEGES ON *.* TO 'sef'@'localhost';
-    ```
-3. Run the mysql.sql script in scripts directory to import the database.
-
-
-### API
-1. Login to the WSO2 APIM publisher portal. https://localhost:9443/publisher
-2. Go to 'Add New API' > I Have an API > Swagger File > Select the scripts/swagger.json file
-3. Set context name to "partnership" and hit next
-4. Click on Managed api and add production endpoint to `http://localhost:8080/api/partnership/v1` 
-    (8080 is your tomacat port) hit next
-5. Set transports to HTTPS, Subscription Tiers to Unlimited
-6. Hit Save & Publish
-7. **Login** to API store and subscribe to the created api. https://localhost:9443/store (you must login)
-
 
 ### How to use invoker to invoke APIs?
 1. To invoke any open endpoints use `http://localhost:8080/invoker/open/api/<api-url>`
