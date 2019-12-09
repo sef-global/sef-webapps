@@ -18,11 +18,6 @@
     
     Copy the key and secret to `sefwebapps/invoker/src/main/resources/configprops.properties` file
     
-5. Build the invoker module using maven.
-    ```$xslt
-    mvn clean install
-    ``` 
-    Deploy the generated war in tomcat9 server.
 
 ## Building the project
 
