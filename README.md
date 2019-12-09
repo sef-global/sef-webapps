@@ -1,4 +1,4 @@
-# sef-webapps
+# SEF Common Webapps
 
 # Setup Development Environment
 
@@ -18,17 +18,15 @@
     
     Copy the key and secret to `sefwebapps/invoker/src/main/resources/configprops.properties` file
     
+##Building the invoker
 
-## Building the project
-
-1. Build the project using maven
+1. Build the invoker module using maven.
     ```$xslt
     mvn clean install
-    ```
-2. Deploy three war files in module target directories in tomcat9
+    ``` 
+2. Deploy the generated war in tomcat9 server.
 
-
-### How to use invoker to invoke APIs?
+## How to use invoker to invoke APIs?
 1. To invoke any open endpoints use `http://localhost:8080/invoker/open/api/<api-url>`
 
     ex: `http://localhost:8080/invoker/open/api/partnership/v1/engagements`
@@ -36,5 +34,4 @@
 2. To invoke other endpoints use `http://localhost:8080/invoker/api/<api-url>`
 3. To login use:
     `POST: http://localhost:8080/invoker/login`
-4. Import  `scripts/postman_collection.json` to postman to see available endpoints.    
 
