@@ -2,3 +2,4 @@
 */target/*
 .DS_Store
 *.iml
+invoker/src/main/resources/configprops.properties
