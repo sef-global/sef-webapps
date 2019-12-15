@@ -1,10 +1,11 @@
 package org.sefglobal.invoker.service;
 
+import org.apache.http.Consts;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.*;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
-import org.sefglobal.invoker.dto.Token;
+import org.sefglobal.invoker.dto.AuthData;
 import org.sefglobal.invoker.exception.HTTPClientCreationException;
 import org.sefglobal.invoker.util.Constants;
 import org.sefglobal.invoker.util.InvokerUtil;
@@ -138,8 +139,8 @@ public class InvokerController {
                 response = InvokerUtil.execute(executor, 3);
             }else{
                 HttpSession session = req.getSession(false);
-                Token token = (Token) session.getAttribute(Constants.ATTR_TOKEN);
-                response = InvokerUtil.execute(executor, 3, token);
+                AuthData authData = (AuthData) session.getAttribute(Constants.ATTR_TOKEN);
+                response = InvokerUtil.execute(executor, 3, authData);
             }
         } catch (HTTPClientCreationException e) {
             resp.sendError(500, "Internal Server Error");
@@ -159,6 +160,8 @@ public class InvokerController {
         }
         String result = resultBuffer.toString();
         resp.setStatus(response.getStatusLine().getStatusCode());
+        resp.setContentType(ContentType.APPLICATION_JSON.getMimeType());
+        resp.setCharacterEncoding(Consts.UTF_8.name());
         rd.close();
         return result;
     }
