@@ -2,7 +2,7 @@ package org.sefglobal.invoker.service;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import org.sefglobal.invoker.dto.Token;
+import org.sefglobal.invoker.dto.AuthData;
 import org.sefglobal.invoker.exception.HTTPClientCreationException;
 import org.sefglobal.invoker.exception.UnexpectedResponseException;
 import org.sefglobal.invoker.util.Constants;
@@ -42,9 +42,9 @@ public class LoginController {
             ControllerUtility.sendFailureRedirect(request, response);
             return;
         }
-        Token token;
+        AuthData authData;
         try {
-            token = OAuthUtil.generateToken(username, password, "default");
+            authData = OAuthUtil.generateToken(username, password, "default");
         } catch (ParseException | ConnectException | HTTPClientCreationException e) {
             logger.error(e.getMessage());
             response.sendError(500, "Internal Server Error: " + e.getMessage());
@@ -56,7 +56,7 @@ public class LoginController {
             return;
         }
 
-        if (token == null) {
+        if (authData == null) {
             logger.error("Cannot create token for user: " + username);
             response.sendError(500, "Internal Server Error, Cannot create token for user: " + username);
             return;
@@ -66,8 +66,7 @@ public class LoginController {
         if (session == null) {
             session = request.getSession(true);
         }
-        session.setAttribute(Constants.ATTR_TOKEN, token);
-        session.setAttribute(Constants.ATTR_USER_NAME, username);
+        session.setAttribute(Constants.ATTR_TOKEN, authData);
         String returnUri = request.getParameter("ret");
 
         JSONObject resultObj = new JSONObject();
@@ -91,6 +90,5 @@ public class LoginController {
         response.setCharacterEncoding("UTF-8");
         out.print(resultObj.toString());
         out.flush();
-
     }
 }

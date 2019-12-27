@@ -5,7 +5,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.sefglobal.invoker.dto.Token;
+import org.sefglobal.invoker.dto.AuthData;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,8 +21,6 @@ import org.sefglobal.invoker.exception.UnexpectedResponseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
@@ -41,7 +39,7 @@ public class OAuthUtil {
         OAuthUtil.environment = env;
     }
 
-    public static Token generateToken(String username, String password, String scopes)
+    public static AuthData generateToken(String username, String password, String scopes)
             throws IOException, ParseException,
             HTTPClientCreationException, UnexpectedResponseException {
 
@@ -66,25 +64,26 @@ public class OAuthUtil {
         JSONObject jTokenResult = (JSONObject) jsonParser.parse(tokenResult);
         String refreshToken = jTokenResult.get("refresh_token").toString();
         String accessToken = jTokenResult.get("access_token").toString();
-        Token token = new Token();
-        token.setAccessToken(accessToken);
-        token.setRefreshToken(refreshToken);
-        token.setClientCredentials(clientCredentials);
+        AuthData authData = new AuthData();
+        authData.setAccessToken(accessToken);
+        authData.setRefreshToken(refreshToken);
+        authData.setClientCredentials(clientCredentials);
+        authData.setUsername(username);
         logger.debug("Access Token retrieved with scopes: " + jTokenResult.get("scope").toString());
-        return token;
+        return authData;
     }
 
 
-    static void refreshToken(Token token) throws IOException, HTTPClientCreationException {
+    static void refreshToken(AuthData authData) throws IOException, HTTPClientCreationException {
         logger.debug("refreshing the token");
         HttpPost tokenEndpoint = new HttpPost(environment.getProperty("config.tokenEndpoint"));
         StringEntity tokenEndpointPayload = new StringEntity(
-                "grant_type=refresh_token&refresh_token=" + token.getRefreshToken()
+                "grant_type=refresh_token&refresh_token=" + authData.getRefreshToken()
                         + "&scope=PRODUCTION",
                 ContentType.APPLICATION_FORM_URLENCODED);
 
         tokenEndpoint.setEntity(tokenEndpointPayload);
-        tokenEndpoint.setHeader("Authorization", "Basic " + token.getClientCredentials());
+        tokenEndpoint.setHeader("Authorization", "Basic " + authData.getClientCredentials());
         tokenEndpoint.setHeader("Content-Type", ContentType.APPLICATION_FORM_URLENCODED.toString());
 
         CloseableHttpClient client = ControllerUtility.getHTTPClient();
@@ -102,8 +101,8 @@ public class OAuthUtil {
                 JSONObject jTokenResult = (JSONObject) jsonParser.parse(tokenResult);
                 String refreshToken = jTokenResult.get("refresh_token").toString();
                 String accessToken = jTokenResult.get("access_token").toString();
-                token.setAccessToken(accessToken);
-                token.setRefreshToken(refreshToken);
+                authData.setAccessToken(accessToken);
+                authData.setRefreshToken(refreshToken);
             } catch (ParseException e) {
                 logger.error("Error while parsing refresh token response", e);
             }
