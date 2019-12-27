@@ -5,7 +5,6 @@ import axios from 'axios';
 import "./Login.css";
 import {withConfigContext} from "../context/ConfigContext";
 import logo from "../../public/images/logo.png";
-import config from "../../public/conf/config.json";
 
 const {Title} = Typography;
 const {Text} = Typography;
@@ -60,7 +59,7 @@ class NormalLoginForm extends React.Component {
     }
 
     handleSubmit = (e) => {
-        // const config = this.props.context;
+        const config = this.props.context;
         const thisForm = this;
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -72,9 +71,8 @@ class NormalLoginForm extends React.Component {
                     loading: true
                 });
                 const parameters = {
-                    username: values.username,
-                    password: values.password,
-                    platform: "publisher"
+                    email: values.username,
+                    password: values.password
                 };
 
                 const request = Object.keys(parameters).map(key => key + '=' + parameters[key]).join('&');

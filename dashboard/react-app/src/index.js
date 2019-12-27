@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import App from "./App";
 import Login from "./pages/Login";
-import Dashboard from "./pages/dashboard/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import './index.css';
-import Home from "./pages/dashboard/Home";
-
+import Home from "./pages/Dashboard/Home/Home";
 
 const routes = [
     {

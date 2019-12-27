@@ -1,68 +1,15 @@
 {
   "theme": {
-    "logo": "https://entgra.io/assets/images/svg/logo.svg",
-    "primaryColor": "rgb(24, 144, 255)"
+    "primaryColor": "#52C41A"
   },
   "serverConfig": {
     "invoker": {
-      "uri": "/publisher-ui-request-handler/invoke",
+      "uri": "/invoker/invoke",
       "publisher": "/application-mgt-publisher/v1.0",
       "store": "/application-mgt-store/v1.0",
       "deviceMgt": "/device-mgt/v1.0"
     },
     "loginUri": "/invoker/login",
-    "logoutUri": "/publisher-ui-request-handler/logout",
-    "platform": "publisher"
-  },
-  "defaultPlatformIcons": {
-    "default": {
-      "icon": "global",
-      "color": "#535c68",
-      "theme": "outlined"
-    },
-    "android": {
-      "icon": "android",
-      "color": "#7db343",
-      "theme": "filled"
-    },
-    "ios": {
-      "icon": "apple",
-      "color": "#535c68",
-      "theme": "filled"
-    },
-    "windows": {
-      "icon": "windows",
-      "color": "#008cc4",
-      "theme": "filled"
-    }
-  },
-  "lifecycle": {
-    "CREATED": {
-      "text": "The initial most state of an application."
-    },
-    "IN-REVIEW": {
-      "text": "This state can be applied when the application is being reviewed by approvers."
-    },
-    "APPROVED": {
-      "text": "The approved state is a compulsory state prior to publishing the application."
-    },
-    "REJECTED": {
-      "text": "The Approvers can reject an application due to a faulty of the app or not being in compliance with company policies."
-    },
-    "PUBLISHED": {
-      "text": "The state which is applied for applications which are qualified for your Corporate App Store. Only the applications of Published state can be installed to your corporate devices."
-    },
-    "BLOCKED": {
-      "text": "This state allows you to block your application either to publish or deprecate at a future date."
-    },
-    "DEPRECATED": {
-      "text": "The applications which are outdated and no longer suit your app store."
-    },
-    "RETIRED": {
-      "text": "The final state of an application, where no transition of states will be allowed after this."
-    }
-  },
-  "deviceTypes": {
-    "mobileTypes": ["android", "ios"]
+    "logoutUri": "/invoker/logout"
   }
 }
