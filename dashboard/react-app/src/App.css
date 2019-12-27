@@ -1,0 +1,60 @@
+.ant-upload.ant-upload-drag {
+  height: 170px;
+}
+
+.release .release-icon{
+  margin-right: 15px;
+}
+
+.release .release-icon img{
+  width: 100%;
+  border-radius: 28%;
+}
+
+.release .release-title{
+  margin-left: 15px;
+}
+
+.release .release-screenshot img{
+  height:450px;
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.release .release-images{
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.release .release-images::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+.release .release-images::-webkit-scrollbar{
+  height: 8px;
+  background-color: #F5F5F5;
+}
+
+.release .release-images::-webkit-scrollbar-thumb{
+  background-color: #aaaaaa;
+  border-radius: 10px;
+}
+
+.release .release-screenshot{
+  display: table-cell;
+}
+
+.main-container{
+  background: #f0f2f5;
+  min-height: 780px
+}
+
+@media only screen and (min-width: 768px) {
+
+  .main-container{
+    padding: 24px;
+  }
+
+}

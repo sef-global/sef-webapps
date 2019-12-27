@@ -2,3 +2,8 @@
 */target/*
 .DS_Store
 *.iml
+
+dist/
+node_modules/
+tmp/
+package-lock.json

@@ -1,0 +1,71 @@
+.logo-image {
+    height: 31px;
+    margin: 0 5px 16px 24px;
+    float: left;
+}
+
+.logo-image img{
+    height: 35px;
+}
+
+.profile{
+    float:right;
+    margin-right: 2%;
+}
+
+.mobile-layout{
+    visibility: hidden;
+    position: absolute;
+}
+
+.mobile-menu-button{
+    margin-left: 4%;
+    position: fixed;
+}
+
+.bar-icon{
+    margin-top: 10%;
+    font-size: 27px;
+}
+
+@media screen and (max-width: 660px) {
+
+    .web-layout{
+        visibility: hidden;
+    }
+
+    .mobile-layout{
+        visibility: visible;
+        z-index: 1;
+    }
+
+    .mobile-menu-button{
+        margin-top: 15px;
+    }
+
+    Header{
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+    }
+
+    .dashboard-body{
+        margin-top: 50px;
+    }
+
+    .logo-image {
+        margin-left: 20%;
+    }
+
+}
+
+@media screen and (max-height: 350px) {
+
+    .mobile-menu-button{
+        margin-top: 15px;
+    }
+    .dashboard-body{
+        margin-top: 9%;
+    }
+
+}

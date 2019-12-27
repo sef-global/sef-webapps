@@ -1,0 +1,15 @@
+{
+  "theme": {
+    "primaryColor": "#52C41A"
+  },
+  "serverConfig": {
+    "invoker": {
+      "uri": "/invoker/invoke",
+      "publisher": "/application-mgt-publisher/v1.0",
+      "store": "/application-mgt-store/v1.0",
+      "deviceMgt": "/device-mgt/v1.0"
+    },
+    "loginUri": "/invoker/login",
+    "logoutUri": "/invoker/logout"
+  }
+}

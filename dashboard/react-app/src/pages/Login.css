@@ -1,0 +1,44 @@
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg) scale(1.0);
+    }
+    100% {
+        -moz-transform: rotate(360deg) scale(0.1);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1.0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(0.1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1.0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(0.1);
+        transform: rotate(360deg) scale(0.1);
+    }
+}
+
+.login .background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background-image: url('https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg');
+    background-repeat: no-repeat;
+    background-position: center 110px;
+    background-size: 100%;
+    animation: spin 200s infinite linear;
+}
+
+.login .content {
+    position: relative;
+    z-index: 1;
+}
